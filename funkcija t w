@@ -1,0 +1,31 @@
+clc
+clear
+t=0:0.01:2*pi;
+T1=4;
+w1=2;
+fi1=45;
+f1=exp(-t./T1).*sin(w1.*t-fi1);
+T2=2;
+w2=4;
+fi2=30;
+f2=exp(-t./T2).*sin(w2.*t-fi2);
+
+subplot(2,1,1)
+plot(t,f1,'r','linewidth',2)
+xlabel('x osa')
+ylabel('y osa')
+grid on
+title ('funkcije')
+set(gca,'xtick',0:pi/4:2*pi)
+set(gca,'xticklabel',{'0','pi/4','pi/2','3*pi/4','pi','5*pi/4','3*pi/2','7*pi/4','2*pi'})
+title('Funkcija f1')
+
+subplot(2,1,2)
+plot(t,f2,'b','linewidth',2)
+xlabel('x osa')
+ylabel('y osa')
+grid on
+title ('funkcije')
+set(gca,'xtick',0:pi/4:2*pi)
+set(gca,'xticklabel',{'0','pi/4','pi/2','3*pi/4','pi','5*pi/4','3*pi/2','7*pi/4','2*pi'})
+title('Funkcija f2')
