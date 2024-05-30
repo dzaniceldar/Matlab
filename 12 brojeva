@@ -1,0 +1,23 @@
+niz = [];
+
+brojac = 0;
+while brojac < 12
+
+    broj = input("Unesi broj");
+    if ismember(broj,niz)
+        disp("upisali ste vec upisani broj, molim Vas unesite drugi broj")
+
+    else
+        niz = [niz broj];
+        brojac = brojac+1;
+    end
+end
+
+drugiNiz = niz;
+
+sortiraniNiz = sort(drugiNiz, "descend");
+
+matrica = reshape(sortiraniNiz, 3, 4)';
+
+disp("Matrica je :  ");
+disp(matrica);
