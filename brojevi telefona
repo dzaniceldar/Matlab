@@ -1,0 +1,31 @@
+clc;
+clear all;
+n = input('unesite broj korisnika\n');
+for i=1:2
+    for j=1:n
+        if(i==1)
+            fprintf('Unesite ime %d-og korisnika: ',j);
+            Korisnici(j).ime = input('','s');
+        end
+        if(i==2)
+            fprintf('Unesite broj telefona %d-og korisnika\n',j);
+            zb=0;
+            for brojac=1:9
+                prosao = 0;
+                while(prosao==0)
+                    xb = input('');
+                    if(xb<0 | xb>9)
+                        fprintf('pogresan unos, unesi tu cifru ponovo\n');
+                    end
+                    if(xb>=0 & xb<=9)
+                        prosao=1;
+                        zb = zb+xb;
+                    end
+                end
+            end
+            Korisnici(j).broj = zb;
+        end
+    end
+end
+opcija = input('odaberi opciju\n');
+fprintf('korisnik je %s i ima vrijednost %d', Korisnici(opcija).ime, Korisnici(opcija).broj);
