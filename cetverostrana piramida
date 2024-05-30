@@ -1,0 +1,41 @@
+clear all
+close all
+a=3;
+h=4;
+P=a^2+2*a*h;
+V=a^2*h./3;
+disp('Povrsina cetverostrane piramide je: ');
+P
+disp('Zapremina cetverostrane piramide je: ');
+V
+
+
+x = [0 3 3 0];
+y = [0 0 3 3];
+z = [0 0 0 0];
+patch(x,y,z,'k');
+hold on;
+x = [0 3 1.5];
+y = [0 0 1.5];
+z = [0 0 4];
+patch(x,y,z,'b');
+hold on;
+x = [3 3 1.5];
+y = [3 0 1.5];
+z = [0 0 4];
+patch(x,y,z,'g');
+hold on;
+x = [0 0 1.5];
+y = [3 0 1.5];
+z = [0 0 4];
+patch(x,y,z,'y');
+hold on;
+x = [0 3 1.5];
+y = [3 3 1.5];
+z = [0 0 4];
+patch(x,y,z,'r');
+hold on;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+grid on
