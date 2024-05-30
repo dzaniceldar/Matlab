@@ -1,0 +1,46 @@
+%% ZADATAK 1 
+clear all
+clc
+
+% Inicijalizacija broja studenata i odsjeka
+brojStudenata = 10;
+brojOdsjeka = 5;
+
+% Generiranje prosječnih ocjena za 10 studenata za 5 odsjeka (ocjene između 6 i 10)
+prosjecneOcjene = rand(brojStudenata, brojOdsjeka) * 4 + 6;
+
+% Pronalaženje najboljih i najlošijih studenata za svaki odsjek
+[najboljeOcjeneOdsjeka, najboljiIndeksiOdsjeka] = max(prosjecneOcjene);
+[najlosijeOcjeneOdsjeka, najlosijiIndeksiOdsjeka] = min(prosjecneOcjene);
+
+% Pronalaženje najboljeg i najlošijeg studenta među svim odsjecima
+[najboljaOcjena, najboljiStudentIndeks] = max(prosjecneOcjene(:));
+[najlosijaOcjena, najlosijiStudentIndeks] = min(prosjecneOcjene(:));
+
+% Pretvaranje linearnog indeksa u indeks redova i kolona
+[najboljiStudentRed, najboljiStudentKolona] = ind2sub(size(prosjecneOcjene), najboljiStudentIndeks);
+[najlosijiStudentRed, najlosijiStudentKolona] = ind2sub(size(prosjecneOcjene), najlosijiStudentIndeks);
+
+% Izračunavanje prosječne ocjene za svaki odsjek pojedinačno
+prosjecnaOcjenaOdsjeka = mean(prosjecneOcjene);
+
+% Izračunavanje prosječne ocjene za sve odsjeke
+prosjecnaOcjenaSvihOdsjeka = mean(prosjecneOcjene, 2);
+
+% Sortiranje studenata po odsjecima prema prosječnoj ocjeni od najveće do najmanje
+[prosjecnaOcjenaSvihOdsjekaSortirano, indeksiSortirano] = sort(prosjecnaOcjenaSvihOdsjeka, 'descend');
+
+% Ispis rezultata
+disp('Najbolji studenti po odsjecima:');
+disp(najboljeOcjeneOdsjeka);
+disp('Najlošiji studenti po odsjecima:');
+disp(najlosijeOcjeneOdsjeka);
+fprintf('Najbolji student svih odsjeka je student %d na odsjeku %d sa prosječnom ocjenom %.2f\n', najboljiStudentRed, najboljiStudentKolona, najboljaOcjena);
+fprintf('Najlošiji student svih odsjeka je student %d na odsjeku %d sa prosječnom ocjenom %.2f\n', najlosijiStudentRed, najlosijiStudentKolona, najlosijaOcjena);
+disp('Prosječne ocjene po odsjecima:');
+disp(prosjecnaOcjenaOdsjeka);
+fprintf('Prosječna ocjena svih studenata je: %.2f\n', mean(prosjecnaOcjenaSvihOdsjeka));
+disp('Sortirani studenti po odsjecima prema prosječnoj ocjeni (od najveće do najmanje):');
+disp(prosjecnaOcjenaSvihOdsjekaSortirano);
+disp('Indeksi sortiranih studenata po odsjecima:');
+disp(indeksiSortirano);
