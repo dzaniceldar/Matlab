@@ -1,0 +1,103 @@
+%% ZADATAK 1 - MATRICA
+% Unos prve matrice
+clear all
+clc
+r1 = input('Unesite broj redova prve matrice: ');
+k1 = input('Unesite broj kolona prve matrice: '); 
+
+for i = 1:r1
+    for j = 1:k1
+        prvaMatrica(i,j) = input('Unesite elemente prve matrice: ');
+    end
+end
+
+% Unos druge matrice
+r2 = input('Unesite broj redova druge matrice: ');a
+k2 = input('Unesite broj kolona druge matrice: '); 
+
+for i = 1:r2
+    for j = 1:k2
+        drugaMatrica(i,j) = input('Unesite elemente druge matrice: ');
+    end
+end
+
+% Unos treće matrice
+r3 = input('Unesite broj redova treće matrice: ');
+k3 = input('Unesite broj kolona treće matrice: '); 
+
+for i = 1:r3
+    for j = 1:k3
+        trecaMatrica(i,j) = input('Unesite elemente treće matrice: ');
+    end
+end
+
+disp("Prva matrica koju ste unijeli: ");
+disp(prvaMatrica);
+
+disp('Druga matrica koju ste unijeli: ');
+disp(drugaMatrica);
+
+disp('Treća matrica koju ste unijeli: ');
+disp(trecaMatrica);
+
+% Izbornik za operacije
+disp('Izaberite koje dvije matrice želite koristiti za operacije:');
+disp('1. Prva matrica i druga matrica');
+disp('2. Prva matrica i treća matrica');
+disp('3. Druga matrica i treća matrica');
+
+izbor = input('Unesite broj izbora: ');
+
+switch izbor
+    case 1
+        matrica1 = prvaMatrica;
+        matrica2 = drugaMatrica;
+    case 2
+        matrica1 = prvaMatrica;
+        matrica2 = trecaMatrica;
+    case 3
+        matrica1 = drugaMatrica;
+        matrica2 = trecaMatrica;
+    otherwise
+        disp('Pogrešan izbor.');
+        return;
+end
+
+% Provjera za oduzimanje matrica
+if isequal(size(matrica1), size(matrica2))
+    disp('Matrice se mogu oduzimati.');
+    oduzimanjeMatrica = matrica1 - matrica2;
+    disp("Rezultat oduzimanja matrica je:");
+    disp(oduzimanjeMatrica);
+else
+    disp('Matrice se ne mogu oduzimati.');
+end
+
+% Provjera za množenje matrica
+if size(matrica1, 2) == size(matrica2, 1)
+    disp('Matrice se mogu množiti.'); 
+    mnozenjeMatrica = matrica1 * matrica2;
+    disp('Rezultat množenja je:');
+    disp(mnozenjeMatrica);
+else
+    disp('Matrice se ne mogu množiti.');
+end
+
+% Dodavanje operacija sabiranja i dijeljenja
+if isequal(size(matrica1), size(matrica2))
+    disp('Matrice se mogu sabirati.');
+    sabiranjeMatrica = matrica1 + matrica2;
+    disp("Rezultat sabiranja matrica je:");
+    disp(sabiranjeMatrica);
+else
+    disp('Matrice se ne mogu sabirati.');
+end
+
+if size(matrica1, 2) == size(matrica2, 1)
+    disp('Matrice se mogu dijeliti.'); 
+    dijeljenjeMatrica = matrica1 / matrica2;
+    disp('Rezultat dijeljenja je:');
+    disp(dijeljenjeMatrica);
+else
+    disp('Matrice se ne mogu dijeliti.');
+end
