@@ -1,0 +1,31 @@
+% Korisnik unosi broj X u centimetrima
+X = input('Unesite broj u centimetrima: ');
+
+% Korisnik bira mjerne jedinice za pretvaranje
+unit = input('Unesite mjerne jedinice (in, m, cm, mm, dm): ', 's');
+
+% Pretvaranje unešenog broja u odabrane mjerne jedinice koristeći switch case strukturu
+switch unit
+    case 'in'
+        % Pretvaranje iz centimetara u inče
+        convertedValue = X / 2.54;
+        fprintf('%.2f cm = %.2f in\n', X, convertedValue);
+    case 'm'
+        % Pretvaranje iz centimetara u metre
+        convertedValue = X / 100;
+        fprintf('%.2f cm = %.2f m\n', X, convertedValue);
+    case 'cm'
+        % Pretvaranje iz centimetara u centimetre (nema promjene)
+        convertedValue = X;
+        fprintf('%.2f cm = %.2f cm\n', X, convertedValue);
+    case 'mm'
+        % Pretvaranje iz centimetara u milimetre
+        convertedValue = X * 10;
+        fprintf('%.2f cm = %.2f mm\n', X, convertedValue);
+    case 'dm'
+        % Pretvaranje iz centimetara u decimetre
+        convertedValue = X / 10;
+        fprintf('%.2f cm = %.2f dm\n', X, convertedValue);
+    otherwise
+        disp('Nepoznata mjerna jedinica. Molimo pokušajte ponovo.');
+end
