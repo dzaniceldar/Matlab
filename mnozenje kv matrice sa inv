@@ -1,0 +1,33 @@
+% Unos proizvoljnog niza sa tastature
+niz = input('Unesite niz elemenata (npr. [1 2 3 4 5 6 7 8 9]): ');
+
+% Odredjivanje duzine niza
+n = length(niz);
+
+% Odredjivanje dimenzije najvece kvadratne matrice
+dim = floor(sqrt(n));
+
+% Formiranje najvece kvadratne matrice
+matrica = reshape(niz(1:dim^2), dim, dim);
+
+% Racunanje inverzne matrice
+inverznaMatrica = inv(matrica);
+
+% Mnozenje matrice sa njenom inverznom matricom
+rezultat = matrica * inverznaMatrica;
+
+% Ispis ulaznog niza
+fprintf('Ulazni niz: ');
+disp(niz);
+
+% Ispis kvadratne matrice
+fprintf('Kvadratna matrica:\n');
+disp(matrica);
+
+% Ispis inverzne matrice
+fprintf('Inverzna matrica:\n');
+disp(inverznaMatrica);
+
+% Ispis rezultata mnozenja
+fprintf('Rezultat mnozenja matrice sa njenom inverznom matricom:\n');
+disp(rezultat);
