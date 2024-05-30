@@ -1,0 +1,63 @@
+% Definisanje mreže tačaka
+[x, y] = meshgrid(-2:0.25:2);
+
+% Izračunavanje funkcije
+z = x .* exp(-x.^2 - y.^2);
+
+% Postavljanje figure za subplots
+figure;
+
+% Prikazivanje contour3 grafika u subplotu
+subplot(2, 3, 1);
+contour3(x, y, z, 30);
+colormap hsv;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+colorbar;
+title('Contour3 Grafik');
+grid off;
+
+% Prikazivanje surf grafika u subplotu
+subplot(2, 3, 2);
+surf(x, y, z);
+colormap hsv;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+colorbar;
+title('Surf Grafik');
+grid on;
+
+% Prikazivanje mesh grafika u subplotu
+subplot(2, 3, [3,6]);
+mesh(x, y, z);
+colormap hsv;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+colorbar;
+title('Mesh Grafik');
+grid on;
+
+% Prikazivanje ezsurf grafika u subplotu
+subplot(2, 3, 4);
+ezsurf('x.*exp(-x.^2-y.^2)', [-2, 2, -2, 2]);
+colormap hsv;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+colorbar;
+title('EZSurf Grafik');
+grid on;
+
+% Prikazivanje ezmesh grafika u subplotu
+subplot(2, 3, 5);
+ezmesh('x.*exp(-x.^2-y.^2)', [-2, 2, -2, 2]);
+colormap hsv;
+xlabel('x osa');
+ylabel('y osa');
+zlabel('z osa');
+colorbar;
+title('EZMesh Grafik');
+grid on;
