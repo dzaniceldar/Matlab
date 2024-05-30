@@ -1,0 +1,35 @@
+% Unos prvog niza sa tastature
+niz1 = input('Unesite prvi niz elemenata: ');
+
+% Unos drugog niza sa tastature
+niz2 = input('Unesite drugi niz elemenata: ');
+
+% Pronalaženje broja parnih elemenata u prvom nizu
+broj_parnih_niz1 = sum(mod(niz1, 2) == 0);
+
+% Sabiranje svih elemenata ako je veći broj parnih elemenata u prvom nizu
+if broj_parnih_niz1 > length(niz1) / 2
+    rezultat = sum(niz1) + sum(niz2);
+    disp('Izabrana operacija: sabiranje');
+else
+    rezultat = prod(niz1) * prod(niz2);
+    disp('Izabrana operacija: mnozenje');
+end
+
+% Ispis oba niza
+disp('Prvi niz:');
+disp(niz1);
+disp('Drugi niz:');
+disp(niz2);
+
+% Ispis sume ili proizvoda svih elemenata
+if broj_parnih_niz1 > length(niz1) / 2
+    disp(['Suma svih elemenata nizova: ' num2str(rezultat)]);
+else
+    disp(['Proizvod svih elemenata nizova: ' num2str(rezultat)]);
+end
+
+% Niz koji je nastao spajanjem nizova
+spojeni_niz = [niz1, niz2];
+disp('Niz koji je nastao spajanjem:');
+disp(spojeni_niz);
